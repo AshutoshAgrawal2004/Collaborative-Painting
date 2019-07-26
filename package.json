@@ -1,0 +1,29 @@
+{
+  "name": "p5_shared_canvas",
+  "version": "1.0.0",
+  "description": "An app where people can contribute to make real time paintings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socket",
+    "node",
+    "firebase",
+    "p5",
+    "js",
+    "it_is_awesome",
+    "love",
+    "coding",
+    "train",
+    "daniel",
+    "shiffman",
+    "sololearn"
+  ],
+  "author": "Ashutosh Agrawal",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  }
+}

@@ -12,7 +12,7 @@ var thickness, fillcolor, mycanvas;
 var thicknessbar, thicknessindicator, lock, activecol, colorspots, eraser;
 
 function setup() {
-  socket = io.connect('http://localhost:3000');
+  socket = io.connect('https://collaborate-on-a-paint.herokuapp.com/');
   socket.on('sentpaint', setpainting);
   socket.on('changecol', setcolor);
   socket.on('changestrk', setstroke);

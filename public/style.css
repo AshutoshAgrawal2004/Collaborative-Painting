@@ -35,27 +35,6 @@ header {
   margin: 10px;
 }
 
-.fbconsole {
-  border: 5px solid #c83349;
-  border-radius: 40px;
-  padding: 10px;
-  margin: 10px;
-  font-size: 20px;
-  display: none;
-}
-
-#title, #creator {
-  outline: none;
-  background-color: transparent;
-  border: 5px solid #f9d5e5;
-  padding: 5px;
-  margin: 5px;
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  font-family: 'Courgette', cursive;
-}
-
 #selected-col {
   width: 40px;
   height: 40px;
@@ -106,34 +85,6 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 
 input[type="color"]::-webkit-color-swatch {
   border: none;
-}
-
-.oneimage {
-  /* border: 5px solid #f9d5e5;
-  margin: 5px;
-  padding: 5px;
-  border-radius: 40px; */
-}
-
-.imgcontainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.painter, .imgtitle {
-  font-family: 'Courgette', cursive;
-  font-size: 10px;
-  width: 50px;
-  overflow: hidden;
-  margin: 5px;
-}
-
-.loadedimg {
-  height: 100px;
-  border: 5px double #c83349;
-  border-radius: 20px;
 }
 
 .love {
@@ -204,18 +155,4 @@ a {
     opacity: 0;
     bottom: 0px;
   }
-}
-
-#filterlist {
-  background-color: #c83349;
-  color: #f9d5e5;
-  font-size: 20px;
-  padding: 5px;
-  outline: none;
-  border: 5px solid #f9d5e5;
-  font-family: 'Courgette', cursive;
-}
-
-#nooflikes {
-  font-family: 'Courgette', cursive;
 }

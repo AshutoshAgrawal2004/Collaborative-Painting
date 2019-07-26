@@ -91,9 +91,3 @@ function setstroke(data) {
   thicknessbar[0].value = thickness;
   thicknessindicator.innerHTML = thickness;
 }
-
-function resetpainting() {
-  if(confirm('This will clear your whole painting')) {
-    background(255);
-  }
-}

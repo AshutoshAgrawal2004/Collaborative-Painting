@@ -21,7 +21,7 @@ function setup() {
   activecol = $('#selected-col');
   colorspots = $('.col');
   eraser = $('#eraser');
-  mycanvas = createCanvas(1000, 400);
+  mycanvas = createCanvas(300, 400);
   mycanvas.parent($('.canvascontainer')[0]);
   background(255);
   fillcolor = color($('#col-1').val());

@@ -8,18 +8,20 @@ function makesnack(msg) {
     snackbar.className = snackbar.className.replace('show', '');
   }, 3000);
 }
-var thickness, fillcolor, mycanvas;
+var thickness, fillcolor, mycanvas, onlinecountdisplay;
 var thicknessbar, thicknessindicator, lock, activecol, colorspots, eraser;
 
 function setup() {
   // socket = io.connect('127.0.0.1:3000')
   socket = io.connect('https://collaborate-on-a-paint.herokuapp.com/');
   socket.on('sentpaint', setpainting);
+  socket.on('usercount', setuc);
   thicknessbar = $('#size');
   thicknessindicator = $('#sizeval')[0];
   activecol = $('#selected-col');
   colorspots = $('.col');
   eraser = $('#eraser');
+  onlinecountdisplay = $('#onlinecount')[0];
   mycanvas = createCanvas(300, 400);
   mycanvas.parent($('.canvascontainer')[0]);
   background(255);
@@ -68,4 +70,8 @@ function setpainting(data) {
   stroke(data.fc[0], data.fc[1], data.fc[2], data.fc[3]);
   strokeWeight(data.sw);
   line(data.mx, data.my, data.pmx, data.pmy);
+}
+
+function setuc(data) {
+  onlinecountdisplay.innerHTML = data.uc;
 }

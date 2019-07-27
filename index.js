@@ -12,13 +12,25 @@ var currentpaint = [];
 setInterval(() => {
   currentpaint = [];
 }, 60 * 5 * 1000);
+var usercount = 0;
 
 function newConnection(socket) {
   for(cp of currentpaint) {
     socket.emit('sentpaint', cp);
   }
+  usercount++
+  console.log(usercount);
+  io.emit('usercount', {
+    uc: usercount
+  });
   socket.on('painting', data => {
     socket.broadcast.emit('sentpaint', data);
     currentpaint.push(data);
   });
+  socket.on('disconnect', () => {
+    usercount--
+    socket.broadcast.emit('usercount', {
+      uc: usercount
+    });
+  })
 }

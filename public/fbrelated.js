@@ -12,8 +12,8 @@ var thickness, fillcolor, mycanvas;
 var thicknessbar, thicknessindicator, lock, activecol, colorspots, eraser;
 
 function setup() {
-  socket = io.connect('127.0.0.1:3000')
-  // socket = io.connect('https://collaborate-on-a-paint.herokuapp.com/');
+  // socket = io.connect('127.0.0.1:3000')
+  socket = io.connect('https://collaborate-on-a-paint.herokuapp.com/');
   socket.on('sentpaint', setpainting);
   thicknessbar = $('#size');
   thicknessindicator = $('#sizeval')[0];

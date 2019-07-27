@@ -11,7 +11,8 @@ io.sockets.on('connection', newConnection);
 
 function newConnection(socket) {
   console.log(socket.id);
-  socket.on('painting', data => socket.broadcast.emit('sentpaint', data));
-  socket.on('changepaint', data => socket.broadcast.emit('changecol', data));
-  socket.on('changestroke', data => socket.broadcast.emit('changestrk', data));
+  socket.on('painting', data => {
+    console.log(data);
+    socket.broadcast.emit('sentpaint', data)
+  });
 }

@@ -12,10 +12,9 @@ var thickness, fillcolor, mycanvas;
 var thicknessbar, thicknessindicator, lock, activecol, colorspots, eraser;
 
 function setup() {
-  socket = io.connect('https://collaborate-on-a-paint.herokuapp.com/');
+  socket = io.connect('127.0.0.1:3000')
+  // socket = io.connect('https://collaborate-on-a-paint.herokuapp.com/');
   socket.on('sentpaint', setpainting);
-  socket.on('changecol', setcolor);
-  socket.on('changestrk', setstroke);
   thicknessbar = $('#size');
   thicknessindicator = $('#sizeval')[0];
   activecol = $('#selected-col');
@@ -28,30 +27,18 @@ function setup() {
   thickness = Number(thicknessbar.val());
   thicknessbar.change(() => {
     thickness = Number(thicknessbar.val())
-    socket.emit('changestroke', {
-      sw: thickness
-    });
     thicknessindicator.innerHTML = thickness;
   });
   colorspots.change((e) => {
     fillcolor = color(e.target.value);
-    socket.emit('changepaint', {
-      fc: e.target.value
-    });
     activecol.css('backgroundColor', e.target.value);
   });
   colorspots.click((e) => {
     fillcolor = color(e.target.value);
-    socket.emit('changepaint', {
-      fc: e.target.value
-    });
     activecol.css('backgroundColor', e.target.value);
   });
   eraser.click(() => {
     fillcolor = color(255);
-    socket.emit('changepaint', {
-      fc: 255
-    });
   });
   $('.canvascontainer canvas').bind('touchmove', (e) => {
     e.preventDefault();
@@ -69,6 +56,8 @@ function draw() {
       my: mouseY,
       pmx: pmouseX,
       pmy: pmouseY,
+      sw: thickness,
+      fc: fillcolor.levels
     }
     socket.emit('painting', data);
     line(mouseX, mouseY, pmouseX, pmouseY);
@@ -76,18 +65,7 @@ function draw() {
 }
 
 function setpainting(data) {
-  stroke(fillcolor);
-  strokeWeight(thickness);
+  stroke(data.fc[0], data.fc[1], data.fc[2], data.fc[3]);
+  strokeWeight(data.sw);
   line(data.mx, data.my, data.pmx, data.pmy);
-}
-
-function setcolor(data) {
-  fillcolor = color(data.fc);
-  activecol.css('backgroundColor', data.fc);
-}
-
-function setstroke(data) {
-  thickness = data.sw;
-  thicknessbar[0].value = thickness;
-  thicknessindicator.innerHTML = thickness;
 }

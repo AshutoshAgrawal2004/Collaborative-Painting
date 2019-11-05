@@ -5,46 +5,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   Compiled and minified JavaScript -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Courgette|Gloria+Hallelujah&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" charset="utf-8"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  <script src="jscolor.js"></script>
   <title>Collaborative Painting</title>
 </head>
 
 <body>
-  <header>
-    Paint Share
-  </header>
-  <p>Online: <span id="onlinecount">0</span></p>
-
-
-  <!--  -->
-  <!-- p5 related stuff -->
-  <div class="sketch">
-    <span id="sizeval">5</span>
-
-    <input type="range" name="" id="size" value="5" min="1" max="30">
-    <button id="eraser" class="fas fa-eraser"></button>
-    <div class="colorpalete">
-      <input type="color" name="" value="#ff0000" class="col" id="col-1">
-      <input type="color" name="" value="#00ff00" class="col" id="col-2">
-      <input type="color" name="" value="#0000ff" class="col" id="col-3">
-      <input type="color" name="" value="#ffff00" class="col" id="col-4">
+  <div class="container">
+    <header>
+      Let's Paint
+    </header>
+    <p>Online: <span id="onlinecount">0</span></p>
+    <!-- p5 related stuff -->
+    <div class="sketch">
+      <span id="sizeval">5</span>
+      <input type="range" name="" id="size" value="5" min="1" max="30"><button id="eraser"
+        class="fas fa-paint-brush"></button>
+      <div class="color-pallete">
+        <button id="selected-col"
+          class="col jscolor {onFineChange:'updateColor(this)',valueElement:null,value:'C3087B'}"></button>
+        <button id="selected-col"
+          class="col jscolor {onFineChange:'updateColor(this)',valueElement:null,value:'FBC51B'}"></button>
+        <button id="selected-col"
+          class="col jscolor {onFineChange:'updateColor(this)',valueElement:null,value:'0B95BA'}"></button>
+        <button id="selected-col"
+          class="col jscolor {onFineChange:'updateColor(this)',valueElement:null,value:'8BBA2C'}"></button>
+      </div>
+      <div class="canvascontainer"></div>
     </div>
-    <button id="selected-col"></button>
 
-
-    <div class="canvascontainer"></div>
+    <div id="snackbar">Snackbar</div>
+    <footer class="love">Made with <i class="fa fa-heart "></i> by <a
+        href="https://www.sololearn.com/Profile/10779261">Ashutosh Agrawal</a></footer>
   </div>
-
-  <div id="snackbar">Snackbar</div>
-  <footer class="love">Made with <i class="fa fa-heart "></i> by <a href="https://www.sololearn.com/Profile/10779261">Ashutosh Agrawal</a></footer>
-
   <script src="fbrelated.js" charset="utf-8"></script>
 
 

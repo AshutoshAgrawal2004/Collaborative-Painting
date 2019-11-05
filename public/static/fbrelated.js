@@ -9,7 +9,13 @@ function makesnack(msg) {
 	}, 3000);
 }
 var thickness, fillcolor, mycanvas, onlinecountdisplay;
-var thicknessbar, thicknessindicator, lock, activecol, colorspot, eraser;
+var thicknessbar,
+	thicknessindicator,
+	lock,
+	activecol,
+	colorspot,
+	eraser,
+	colorPallete;
 
 function setup() {
 	// socket = io.connect('127.0.0.1:3000');
@@ -18,6 +24,7 @@ function setup() {
 	socket.on('usercount', setuc);
 	thicknessbar = $('#size');
 	thicknessindicator = $('#sizeval')[0];
+	colorPallete = $('.color-pallete');
 	activecol = $('.col');
 	eraser = $('#eraser');
 	onlinecountdisplay = $('#onlinecount')[0];
@@ -36,6 +43,12 @@ function setup() {
 			eraser.removeClass('fa-eraser');
 		}
 		fillcolor = color(e.target.jscolor.rgb);
+	});
+	activecol.focusin(e => {
+		colorPallete.addClass('put-space');
+	});
+	activecol.focusout(e => {
+		colorPallete.removeClass('put-space');
 	});
 	eraser.click(() => {
 		if (eraser.hasClass('fa-eraser')) {

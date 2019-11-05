@@ -7,7 +7,8 @@ HEX: #e06377
 HEX: #c83349 */
 body {
   text-align: center;
-  width: 100vw;
+  width: 95vw;
+  margin: 0;
   background-color: #e06377;
   color: #f9d5e5;
   font-family: 'Gloria Hallelujah', cursive;
@@ -119,6 +120,10 @@ a {
   100% {
     transform: scale(1.0);
   }
+}
+
+.put-space {
+  margin-bottom: 150px;
 }
 
 #snackbar {
